@@ -437,6 +437,7 @@
   "validation.msg.floatingrate.isDifferentialToBaseLendingRate.no.baselending.rate.defined": "Base Lending rate doesn't exists",
   "validation.msg.floatingrate.isDifferentialToBaseLendingRate.cannot.be.true.for.baselendingrate": "isDifferentialToBaseLendingRate cannot be true for floating rate marked as Base Lending Rate",
   "validation.msg.batch.jlg.no.clients.defined": "There is no clients selected for this request",
+	"validation.msg.loan.externalId.loan.with.external.id.exists": "The External Id you provided already exists",
   "#---------": "------------",
   "#Common loan/saving charges": "....",
   "#Headings": "..",
