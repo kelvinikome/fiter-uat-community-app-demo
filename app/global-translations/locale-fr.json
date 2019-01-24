@@ -27,7 +27,8 @@
 			"Yasten",
 			"Urhixidur",
 			"Trial",
-			"Oupsa"
+			"Oupsa",
+			"Od1n"
 		]
 	},
 	"label.heading.totalshares": "Total des actions",
@@ -2651,7 +2652,7 @@
 	"label.button.runselectedjobs": "Exécuter les tâches sélectionnées",
 	"label.button.refresh": "Rafraîchir",
 	"label.button.addcodevalues": "Ajouter des valeurs de code",
-	"label.button.viewhistory": "Afficher l’historique",
+	"label.button.viewhistory": "Voir l’historique",
 	"label.button.addrole": "Ajouter un rôle",
 	"label.button.editcode": "Modifier le code",
 	"label.button.pending.tasks": "Tâches en attente",
@@ -3289,7 +3290,7 @@
 	"validation.msg.savingsproduct.savingsControlAccountId.cannot.be.blank": "Le compte de contrôle d’épargne est obligatoire.",
 	"validation.msg.savingsproduct.savingsReferenceAccountId.cannot.be.blank": "Le compte de référence d’épargne est obligatoire",
 	"validation.msg.savingsproduct.interestOnSavingsAccountId.cannot.be.blank": "Les intérêts sur le compte d’épargne sont obligatoires.",
-	"validation.msg.savingsproduct.incomeFromFeeAccountId.cannot.be.blank ": "Les intérêts sur les comptes de frais sont obligatoires.",
+	"validation.msg.savingsproduct.incomeFromFeeAccountId.cannot.be.blank ": "Les intérêts sur les comptes de frais sont obligatoires",
 	"error.msg.charge.cannot.be.applied.to.savings.product": "La charge d’identifiant `{{params[0].value}} ne peut pas s’appliquer au produit d’épargne.",
 	"error.msg.charge.attach.to.savings.product.invalid.currency": "Les frais et le produit d’épargne doivent avoir la même devise.",
 	"validation.msg.loanproduct.principalValueUsageCondition.cannot.be.blank": "Le type de condition pour le cycle de prêt ne peut pas être vide",
