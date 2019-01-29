@@ -4255,5 +4255,14 @@
   "reportRunFrequency.monthly": "Monthly",
   "reportRunFrequency.yearly": "Yearly",
   "reportRunFrequency.custom": "Custom",
+	"label.heading.mintosschedule": "Mintos Schedule",
+	"label.heading.accumulatedinterest": "Accumulated Interest",
+	"label.heading.delayedamount": "Delayed Amount",
+	"label.heading.penaltiesamount": "Penalties Amount",
+	"label.heading.sum": "Sum",
+	"label.heading.receivedamount": "Received Amount",
+	"label.heading.repaid": "Repaid",
+	"label.heading.totalremainingprincipal": "Total Remaining Principal",
+
   "----End---": "--End of file--- "
 }

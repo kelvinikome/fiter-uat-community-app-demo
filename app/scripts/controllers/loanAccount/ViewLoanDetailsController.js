@@ -176,6 +176,9 @@
                 else {
                     scope.chargeTableShow = false;
                 }
+				if (scope.loandetails.mintosLoan) {
+					scope.loandetails.mintosLoan = JSON.parse(scope.loandetails.mintosLoan);
+				}
                 if (scope.status == "Submitted and pending approval" || scope.status == "Active" || scope.status == "Approved") {
                     scope.choice = true;
                 }
