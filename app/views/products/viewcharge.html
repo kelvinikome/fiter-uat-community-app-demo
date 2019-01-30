@@ -81,6 +81,22 @@
                         <td>{{charge.taxGroup.name}}</td>
                     </tr>
 	            </table>
+                <label ng-show="charge.limits"><strong>{{ 'label.input.chargelimits' | translate }}</strong></label>
+                <table ng-show="charge.limits" class="table">
+                    <tr class="bottomborder graybg">
+                        <th>{{'label.heading.min' | translate}}</th>
+                        <th>{{'label.heading.max' | translate}}</th>
+                        <th>{{'label.input.chargecalculation' | translate}}</th>
+                        <th>{{'label.heading.amount' | translate}}</th>
+                    </tr>
+                    <tr ng-repeat="limit in charge.limits">
+                        <td>{{limit.min | number}}</td>
+                        <td>{{limit.max | number}}</td>
+                        <td>{{limit.chargeCalculationType | translate}}</td>
+                        <td>{{limit.amount | number}}</td>
+                    </tr>
+                </table>
+            </div>
 	    	</div>
         </div>
     </div>
