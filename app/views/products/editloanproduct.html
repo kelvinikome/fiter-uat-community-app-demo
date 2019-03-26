@@ -77,6 +77,17 @@
 	            <input type="checkbox" ng-model="formData.includeInBorrowerCycle" ng-true-value="true" ng-false-value="false">
 	        </label>
 	    </div>
+		<label class="control-label col-sm-2 col-sm-offset-2">{{ 'label.input.scoringmethod' | translate }}
+			<i class="fa fa-question-circle "
+			   tooltip-append-to-body="true"></i>
+		</label>
+
+		<div class="col-sm-2">
+	        <select id="scoringMethod" ng-model="formData.scoringMethod" class="form-control"
+	                ng-options="entry.name as entry.name for entry in scoringconfigurations"
+	                value="{{entry.name}}">
+			</select>
+		</div>
 	</div>
 	<h3>{{ 'label.heading.currency' | translate }}</h3>
 	<hr>
