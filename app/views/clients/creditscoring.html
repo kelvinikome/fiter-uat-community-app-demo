@@ -7,27 +7,53 @@
     
     <wizard current-step="step" on-finish="submit()" class="card well">
         <wz-step icon="fa fa-circle-o" wz-title="{{'label.heading.creditscoringburrower' | translate}}">
-            <form name="Burrower" novalidate="" ng-submit="goNext(Terms)" class="form-inline">
+            <form name="Burrower" novalidate="" ng-submit="goNext(Burrower)" class="form-inline">
                 <fieldset>
                     <api-validate></api-validate>
                     <!-- <h3>{{'label.heading.details' | translate}}</h3> -->
+
                     <hr>
                     <table class="" style="border-spacing: 10px; border-collapse: separate">
                         <tr>
                             <td class="width14">
-                                <label>{{ 'label.input.age' | translate }}:&nbsp;</label>
+                                <label>{{ 'label.input.product' | translate }}
+                                    <span class="required">*</span>:&nbsp;
+                                </label>
+                                <i class="fa fa-question-circle" uib-tooltip="{{'label.tooltip.product' | translate}}"></i>
+                            </td>
+                            <td class="width36 paddedbottom20">
+                                <select id="scoringId" ng-model="configuration" class="form-control width170px" ng-options="product.scoringMethod as product.name for product in products"
+                                    value="{{product.scoringMethod}}" ng-change="loanProductChange(configuration)" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">{{'label.selectloanproduct' | translate}}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <hr ng-show="configuration">
+                    <table ng-show="configuration" class="" style="border-spacing: 10px; border-collapse: separate">
+                        <tr>
+                            <td class="width14">
+                                <label>{{'label.input.dateofbirth' | translate}}:&nbsp;</label>
                                 <span class="required">*</span>:</label>
                             </td>
                             <td class="paddedbottom20 width36">
-                                <input type="text" id="age" name="age" ng-model="formData.burrower.age" class="form-control" number-format required/>
-                                <form-validate valattributeform="Burrower" valattribute="age" />
+                                <input id="dateofbirth" type="text" name="dateofbirth" datepicker-pop="dd MMMM yyyy"
+                                    ng-model="formData.burrower.dateOfBirth" is-open="opened1" min="minDate" max="restrictDate"  class="form-control"/>
+                                <form-validate valattributeform="Burrower" valattribute="dateofbirth" />
                             </td>
                             <td class="width14">
                                 <label>{{ 'label.input.employment' | translate }}:&nbsp;</label>
                                 <span class="required">*</span>:</label>
                             </td>
                             <td class="paddedbottom20 width36">
-                                <input type="text" id="employment" name="employment" ng-model="formData.burrower.employment" class="form-control" required/>
+                                <select id="employment" ng-model="formData.burrower.employment" class="form-control width170px" ng-options="entry for entry in placeholder.employment"
+                                    value="{{entry}" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">
+                                    </option>
+                                </select>
                                 <form-validate valattributeform="Burrower" valattribute="employment" />
                             </td>
                         </tr>
@@ -45,7 +71,12 @@
                                 <span class="required">*</span>:</label>
                             </td>
                             <td class="paddedbottom20 width36">
-                                <input type="text" id="paymentIncidents" name="paymentIncidents" ng-model="formData.burrower.paymentIncidents" class="form-control" required/>
+                                <select id="paymentIncidents" ng-model="formData.burrower.paymentIncidents" class="form-control width170px" ng-options="entry for entry in placeholder.paymentIncidents"
+                                    value="{{entry}" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">
+                                    </option>
+                                </select>
                                 <form-validate valattributeform="Burrower" valattribute="paymentIncidents" />
                             </td>
                         </tr>
@@ -63,7 +94,12 @@
                                 <span class="required">*</span>:</label>
                             </td>
                             <td class="paddedbottom20 width36">
-                                <input type="text" id="liquidatedAssets" name="liquidatedAssets" ng-model="formData.burrower.liquidatedAssets" class="form-control" required/>
+                                <select id="liquidatedAssets" ng-model="formData.burrower.liquidatedAssets" class="form-control width170px" ng-options="entry for entry in placeholder.liquidatedAssets"
+                                    value="{{entry}" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">
+                                    </option>
+                                </select>
                                 <form-validate valattributeform="Burrower" valattribute="liquidatedAssets" />
                             </td>
                         </tr>
@@ -135,8 +171,12 @@
                                 <span class="required">*</span>
                             </td>
                             <td class="paddedbottom20">
-                                <input id="loanDestiny" class="form-control" name="loanDestiny" type="text" ng-model="formData.loan.loanDestiny"
-                                    required late-Validate>&nbsp;
+                                <select id="loanDestiny" ng-model="formData.loan.loanDestiny" class="form-control width170px" ng-options="entry for entry in placeholder.loanDestiny"
+                                    value="{{entry}" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">
+                                    </option>
+                                </select>
                                 <form-validate valattributeform="Loan" valattribute="loanDestiny" />
                             </td>
                             <td>
@@ -172,8 +212,12 @@
                                     <span class="required">*</span>:</label>
                             </td>
                             <td class="width31 paddedbottom20">
-                                <input type="text" class="form-control" id="propertyType" name="propertyType" ng-model="formData.collateral.propertyType" required
-                                    late-Validate/>
+                                <select id="propertyType" ng-model="formData.collateral.propertyType" class="form-control width170px" ng-options="entry for entry in placeholder.propertyType"
+                                    value="{{entry}" class="form-control width170px"
+                                    required="required">
+                                    <option style="display:none" value="">
+                                    </option>
+                                </select>
                                 <form-validate valattributeform="Collateral" valattribute="propertyType" />
                             </td>
                             <td class="width14">
@@ -343,106 +387,235 @@
                 <fieldset>
                     <api-validate></api-validate>
                     <!--<h3>Review</h3>-->
-                    <table width="100%">
+
+                    <div ng-hide="scoring.qualification" class="col-md-offset-5" style="padding-top:100px">
+                    <!-- <div class="col-md-offset-5" style="padding-top:100px"> -->
+                        <!-- <button id="cancel3" type="reset" class="btn btn-default" ng-click="cancel()">
+                            {{'label.button.cancel' | translate}}
+                        </button> -->
+                        <button id="save" type="submit" class="btn btn-primary" wz-next>{{'label.button.processcreditscoring' | translate}}
+                        </button>
+                    </div>
+                    <div ng-show="scoring.qualification" class="col-sm-6 col-md-offset-2 table-responsive">
+                        <br>
+                        <br>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" class="col-md-6 text-center">{{'label.heading.scoringresult' | translate}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><strong>{{'label.heading.totalscore' | translate}}</strong></th>
+                                        <td style="font-size:20px">{{scoring.totalScore}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><strong>{{'label.input.qualification' | translate}}</strong></th>
+                                        <td style="font-size:20px">{{scoring.qualification.qualification}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+
+                    <div ng-show="scoring.qualification" class="col-sm-6 col-md-offset-2">
+                        <br>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th class="col-md-6">{{'label.heading.variable' | translate}}</th>
+                                    <th>{{'label.heading.score' | translate}}</th>
+                                    <th>{{'label.heading.limit' | translate}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="entry in selectedConfiguration.creditScoringVariableGroups">
+                                    <th>{{entry.name}}</th>
+                                    <td>{{fetchDatagroupValue(entry.name)}}</td>
+                                    <td>{{entry.points}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <table ng-show="scoring.qualification" width="100%">
                         <tr class="bottomborder">
-                            <td colspan="7">
+                            <td colspan="6">
                                 <strong>{{'label.heading.creditscoringburrower' | translate}}</strong>
                             </td>
+                            <td><strong>{{'label.heading.value' | translate}}</strong></td>
+                            <td><strong>{{'label.heading.score' | translate}}</strong></td>
+                            <td><strong>{{'label.heading.limit' | translate}}</strong></td>
                         </tr>
                         <tr class="toppadding">
-                            <td colspan="6">{{'label.input.age' | translate}}</td>
-                            <td>{{formData.burrower.age}}</td>
+                            <td colspan="6">{{'label.input.dateofbirth' | translate}}:</td>
+                            <td>{{formData.burrower.dateOfBirth | DateFormat}}</td>
+                            <td>{{scoring.scoringBurrower.dateOfBirthValue}}</td>
+                            <td>{{limit.age}}</td>
+                            <td ng-if="formData.burrower.dateOfBirthValue > 65" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.employment' | translate }}:&nbsp;
                             </td>
                             <td>{{formData.burrower.employment}}</td>
+                            <td>{{scoring.scoringBurrower.employmentValue}}</td>
+                            <td>{{limit.employment}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.dtiratio' | translate }}:&nbsp</td>
                             <td>{{formData.burrower.dtiRatio}}</td>
+                            <td>{{scoring.scoringBurrower.dtiRatioValue}}</td>
+                            <td>{{limit.dtiRatio}}</td>
+                            <td ng-if="formData.burrower.dtiRatio > 50" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.paymentincidents' | translate }}</td>
                             <td class="">{{formData.burrower.paymentIncidents}}</td>
+                            <td class="">{{scoring.scoringBurrower.paymentIncidentsValue}}</td>
+                            <td>{{limit.paymentIncidents}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.monthlyincome' | translate }}</td>
                             <td class="">{{formData.burrower.monthlyIncome}}</td>
+                            <td class="">{{scoring.scoringBurrower.monthlyIncomeValue}}</td>
+                            <td>{{limit.monthlyIncome}}</td>
+                            <td ng-if="formData.burrower.monthlyIncomeValue < 1500" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.liquidatedassets' | translate }}</td>
                             <td class="">{{formData.burrower.liquidatedAssets}}</td>
+                            <td class="">{{scoring.scoringBurrower.liquidatedAssetsValue}}</td>
+                            <td>{{limit.liquidatedAssets}}</td>
+                        </tr>
+                        <tr class="toppadding">
+                            <td colspan="7">
+                                <strong>{{'label.heading.total' | translate }}</strong>
+                            </td>
+                            <td><strong>{{scoring.burrower}}</strong></td>
+                            <td><strong>{{limit.burrower}}</strong></td>
                         </tr>
                         <tr class="bottomborder toppadding">
-                            <td colspan="7">
+                            <td colspan="8">
                                 <strong>{{'label.heading.creditscoringloan' | translate}}</strong>
                             </td>
                         </tr>
                         <tr class="toppadding">
                             <td colspan="6">{{ 'label.input.interest' | translate }}</td>
                             <td>{{formData.loan.interest}}</td>
+                            <td>{{scoring.scoringLoan.interestValue}}</td>
+                            <td>{{limit.interest}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.amount' | translate }}</td>
                             <td>{{formData.loan.amount}} {{loanaccountinfo.currency.DisplaySymbol}}</td>
+                            <td>{{scoring.scoringLoan.amountValue}}</td>
+                            <td>{{limit.amount}}</td>
+                            <td ng-if="formData.loan.amount > 150000" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.opening' | translate }}</td>
                             <td>{{formData.loan.opening}}</td>
+                            <td>{{scoring.scoringLoan.openingValue}}</td>
+                            <td>{{limit.opening}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.term' | translate }}</td>
                             <td>{{formData.loan.term}} {{loandetails.loanTermFrequencyValue}}</td>
+                            <td>{{scoring.scoringLoan.termValue}}</td>
+                            <td>{{limit.term}}</td>
+                            <td ng-if="formData.loan.term > 60" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.loandestiny' | translate }}</td>
                             <td>{{formData.loan.loanDestiny}}</td>
+                            <td>{{scoring.scoringLoan.loanDestinyValue}}</td>
+                            <td>{{limit.loanDestiny}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{ 'label.input.annualapr' | translate }}</td>
                             <td>{{formData.loan.annualApr}}</td>
+                            <td>{{scoring.scoringLoan.annualAprValue}}</td>
+                            <td>{{limit.annualApr}}</td>
+                            <td ng-if="formData.loan.annualApr < 14" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
+                        </tr>
+                        <tr class="toppadding">
+                            <td colspan="7">
+                                <strong>{{'label.heading.total' | translate }}</strong>
+                            </td>
+                            <td><strong>{{scoring.loan}}</strong></td>
+                            <td><strong>{{limit.loan}}</strong></td>
                         </tr>
                         <tr class="bottomborder toppadding">
-                            <td colspan="7">
+                            <td colspan="8">
                                 <strong>{{'label.heading.creditscoringcollateral' | translate }}</strong>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.propertytype' | translate}}</td>
                             <td>{{formData.collateral.propertyType}}</td>
+                            <td>{{scoring.scoringCollateral.propertyTypeValue}}</td>
+                            <td>{{limit.propertyType}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.ltv' | translate}}</td>
                             <td>{{formData.collateral.ltv}}</td>
+                            <td>{{scoring.scoringCollateral.ltvValue}}</td>
+                            <td>{{limit.ltv}}</td>
+                            <td ng-if="formData.collateral.ltv > 35" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.lltv' | translate}}</td>
                             <td>{{formData.collateral.lltv}}</td>
+                            <td>{{scoring.scoringCollateral.lltvValue}}</td>
+                            <td>{{limit.lltv}}</td>
+                            <td ng-if="formData.collateral.lltv > 50" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.previouscharges' | translate}}</td>
                             <td>{{formData.collateral.previousCharges}}</td>
+                            <td>{{scoring.scoringCollateral.previousChargesValue}}</td>
+                            <td>{{limit.previouscharges}}</td>
+                            <td ng-if="formData.collateral.previousChargesValue > 0" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.population' | translate}}</td>
                             <td>{{formData.collateral.population}}</td>
+                            <td>{{scoring.scoringCollateral.populationValue}}</td>
+                            <td>{{limit.population}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.pricepermetersquare' | translate}}</td>
                             <td>{{formData.collateral.pricePerMeterSquare}}</td>
+                            <td>{{scoring.scoringCollateral.pricePerMeterSquareValue}}</td>
+                            <td>{{limit.pricePerMeterSquare}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.liquidityratio' | translate}}</td>
                             <td>{{formData.collateral.liquidityRatio}}</td>
+                            <td>{{scoring.scoringCollateral.liquidityRatioValue}}</td>
+                            <td>{{limit.liquidityRatio}}</td>
+                            <td ng-if="formData.collateral.liquidityRatio < 4.5" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.buildingvalueratio' | translate}}</td>
                             <td>{{formData.collateral.buildingValueRatio}}</td>
+                            <td>{{scoring.scoringCollateral.buildingValueRatioValue}}</td>
+                            <td>{{limit.buildingValueRatio}}</td>
                         </tr>
                         <tr>
                             <td colspan="6">{{'label.input.far' | translate}}</td>
                             <td>{{formData.collateral.far}}</td>
+                            <td>{{scoring.scoringCollateral.farValue}}</td>
+                            <td>{{limit.far}}</td>
+                            <td ng-if="formData.collateral.far < 0.3" style="background-color:red; color:white">{{'label.heading.committe' | translate}}</td>
+                        </tr>
+                        <tr class="bottomborder toppadding">
+                            <td colspan="7">
+                                <strong>{{'label.heading.total' | translate }}</strong>
+                            </td>
+                            <td><strong>{{scoring.collateral}}</strong></td>
+                            <td><strong>{{limit.collateral}}</strong></td>
                         </tr>
                     </table>
                     <br>
@@ -462,17 +635,6 @@
                     </table>
                     <br>
                     <br>
-                    <div class="col-md-offset-5">
-                        <button id="cancel3" type="reset" class="btn btn-default" ng-click="cancel()">
-                            {{'label.button.cancel' | translate}}
-                        </button>
-                        <button id="save" type="submit" class="btn btn-primary" wz-next>{{'label.button.processcreditscoring' | translate}}
-                        </button>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 text-center">
-                        <span>Qualification: </span>{{ scoring.qualification }}
-                    </div>
                     <hr>
                     <button class="btn btn-default pull-left" wz-previous>
                         <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Previous

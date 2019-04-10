@@ -152,9 +152,9 @@
                     creditScoringResource: defineResource(apiVer + "/creditscoring/process", {}, {
                         post: {method: 'POST', params: {configurationId: '@configurationId'}}
                     }),
-                    creditScoringConfigurationResource: defineResource(apiVer + "/creditscoring/configurations", {}, {
+                    creditScoringConfigurationResource: defineResource(apiVer + "/creditscoring/configurations/:configurationId", {configurationId: '@configurationId'}, {
                         getAllConfigurations: {method: 'GET', params: {}, isArray: true},
-                        getConfiguration: {method: 'GET', params: {}},
+                        get: {method: 'GET', params: {}},
                         put: {method: 'PUT', params: {}}
                     }),
                     chargeResource: defineResource(apiVer + "/charges/:chargeId", {chargeId: '@chargeId'}, {
