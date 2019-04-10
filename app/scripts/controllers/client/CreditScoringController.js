@@ -129,16 +129,14 @@
 
             scope.isQualification = function(min, max) {
                 if ((min <= scope.scoring.qualification.min) && (max >= scope.scoring.qualification.max)) {
-                    console.log("found!!")
                     return true;
                 }
                 return false;
             }
 
             scope.submit = function () {
-                // scope.formData.loan.opening = Number(scope.formData.loan.opening).toFixed(2);
-                // resourceFactory.creditScoringResource.post({configurationId: scope.selectedConfiguration.id}, scope.formData, function(data) {
-                resourceFactory.creditScoringResource.post({configurationId: 1}, scope.data, function(data) {
+                resourceFactory.creditScoringResource.post({configurationId: scope.selectedConfiguration.id}, scope.formData, function(data) {
+                // resourceFactory.creditScoringResource.post({configurationId: 1}, scope.data, function(data) {
                     scope.scoring = data;
                 });
             };
