@@ -140,6 +140,17 @@
                      </div>
                   </div>
                   <div class="form-group">
+                      <label class="control-label col-sm-2" for="emailAddress">{{'label.input.email' | translate}}</label>
+                      <div class="col-sm-3">
+                          <input type="text" id="emailAddress" name="emailAddress" ng-model="formData.emailAddress"
+                                 ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'  class="form-control"/>
+                      </div>
+                      <div class="col-sm-2">
+                        <span ng-show="createclientform.emailAddress.$invalid && createclientform.emailAddress.$dirty">
+                        </span>
+                      </div>
+                  </div>
+                  <div class="form-group">
                      <label class="control-label col-sm-2" ng-hide="showNonPersonOptions">{{'label.input.dateofbirth' | translate}}</label>
                      <label class="control-label col-sm-2" ng-show="showNonPersonOptions">{{'label.input.incorporationdate' | translate}}</label>
                      <div class="col-sm-3">
