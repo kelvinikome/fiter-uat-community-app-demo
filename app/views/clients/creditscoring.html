@@ -264,21 +264,14 @@
                                 <form-validate valattributeform="Collateral" valattribute="population" />
                             </td>
                             <td>
-                                <label class="control-label">{{ 'label.input.touristic' | translate }}:</label>
-                                <span class="required">*</span>
-                            </td>
-                            <td class="paddedbottom20">
-                                <input id="touristic" type="checkbox" ng-model="formData.collateral.touristic" class="form-control" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
                                 <label class="control-label">{{ 'label.input.pricepermetersquare' | translate }}:</label>
                                 <span class="required">*</span>
                             </td>
                             <td class="paddedbottom20">
                                 <input id="pricePerMeterSquare" type="text" ng-model="formData.collateral.pricePerMeterSquare" class="form-control" number-format required/>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <label>{{ 'label.input.liquidityratio' | translate }}</label>
                                 <span class="required">*</span>
@@ -288,8 +281,6 @@
                                     required late-Validate>&nbsp;
                                 <form-validate valattributeform="Collateral" valattribute="liquidityRatio" />
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <label class="control-label">{{ 'label.input.buildingvalueratio' | translate }}:</label>
                                 <span class="required">*</span>
@@ -297,6 +288,8 @@
                             <td class="paddedbottom20">
                                 <input id="buildingValueRatio" type="text" ng-model="formData.collateral.buildingValueRatio" class="form-control" number-format required/>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <label>{{ 'label.input.far' | translate }}</label>
                                 <span class="required">*</span>
