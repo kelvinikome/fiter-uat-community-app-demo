@@ -149,6 +149,14 @@
                         getProductmix: {method: 'GET', params: {}},
                         put: {method: 'PUT', params: {}}
                     }),
+                    creditScoringResource: defineResource(apiVer + "/creditscoring/process", {}, {
+                        post: {method: 'POST', params: {configurationId: '@configurationId'}}
+                    }),
+                    creditScoringConfigurationResource: defineResource(apiVer + "/creditscoring/configurations/:configurationId", {configurationId: '@configurationId'}, {
+                        getAllConfigurations: {method: 'GET', params: {}, isArray: true},
+                        get: {method: 'GET', params: {}},
+                        put: {method: 'PUT', params: {}}
+                    }),
                     chargeResource: defineResource(apiVer + "/charges/:chargeId", {chargeId: '@chargeId'}, {
                         getAllCharges: {method: 'GET', params: {}, isArray: true},
                         getCharge: {method: 'GET', params: {}},
