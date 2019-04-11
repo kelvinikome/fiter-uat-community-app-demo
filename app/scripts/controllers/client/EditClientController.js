@@ -31,6 +31,7 @@
                     externalId: data.externalId,
                     isStaff:data.isStaff,
                     mobileNo: data.mobileNo,
+					emailAddress: data.emailAddress,
                     savingsProductId: data.savingsProductId,
                     genderId: data.gender.id,
                     fullname: data.fullname,
