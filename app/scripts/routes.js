@@ -97,9 +97,6 @@
             .when('/viewclient/:id/chargeoverview', {
                 templateUrl: 'views/clients/clientchargeoverview.html'
             })
-            .when('/viewclient/:id/creditscoring', {
-                templateUrl: 'views/clients/creditscoring.html'
-            })
             .when('/clientscreenreport/:clientId', {
                 templateUrl: 'views/clients/clientscreenreport.html'
             })

@@ -102,16 +102,6 @@
                                ng-false-value="false">
                     </label>
                 </div>
-                <label class="control-label col-sm-2 col-sm-offset-2">{{ 'label.input.scoringmethod' | translate }}
-                    <i class="fa fa-question-circle "
-                       tooltip-append-to-body="true"></i>
-                </label>
-
-                <div class="col-sm-2">
-                    <select id="scoringMethod" ng-model="formData.scoringMethod" class="form-control">
-                        <option ng-repeat="x in scoringconfigurations" value="{{x.name}}">{{x.name}}</option>
-                    </select>
-                </div>
             </div>
                     <hr>
                     <button class = "btn btn-default pull-left" wz-previous disabled><i class = "fa fa-arrow-left"></i>&nbsp;&nbsp;Previous</button>
@@ -1604,10 +1594,6 @@
                 <tr>
                     <td>{{'label.heading.includeborrowercycle' | translate}} :</td>
                     <td colspan="3">{{loanproduct.includeInBorrowerCycle}}</td>
-                </tr>
-                <tr>
-                    <td>{{'label.heading.scoringmethod' | translate}} :</td>
-                    <td colspan="3">{{loanproduct.scoringMethod}}</td>
                 </tr>
                 <tr>
                     <td colspan="4"><br/></td>

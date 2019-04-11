@@ -7,7 +7,6 @@
             scope.loanProductConfigurableAttributes = [];
             scope.showOrHideValue = "show";
             scope.configureFundOptions = [];
-            scope.scoringconfigurations = [];
             scope.specificIncomeAccountMapping = [];
             scope.penaltySpecificIncomeaccounts = [];
             scope.configureFundOption = {};
@@ -242,16 +241,6 @@
                 scope.formData.minimumGap = scope.product.minimumGap;
                 scope.formData.maximumGap = scope.product.maximumGap;
                 scope.formData.canUseForTopup = scope.product.canUseForTopup;
-            });
-
-            resourceFactory.creditScoringConfigurationResource.getAllConfigurations("", function(data) {
-                scope.scoringconfigurations = data;
-
-                for (let configuration of data) {
-                    if (configuration.name == scope.product.scoringMethod) {
-                        scope.formData.scoringMethod = configuration.name;
-                    }
-                }
             });
 
             scope.chargeSelected = function (chargeId) {

@@ -4,7 +4,6 @@
             scope.restrictDate = new Date();
             scope.formData = {};
             scope.loanproduct = {};
-            scope.scoringconfigurations = [];
             scope.charges = [];
             scope.accountingOptions = ['None','Cash','Accrual(Periodic)','Accrual(Upfront)'];
             scope.floatingrateoptions = [];
@@ -83,10 +82,6 @@
                 scope.product.interestRecalculationNthDayTypeOptions.push({"code" : "onDay", "id" : -2, "value" : "on day"});
                 scope.loanproduct = angular.copy(scope.formData);
                 scope.isClicked = false;
-            });
-
-            resourceFactory.creditScoringConfigurationResource.getAllConfigurations("", function(data) {
-                scope.scoringconfigurations = data;
             });
 
              scope.$watch('formData',function(newVal){
