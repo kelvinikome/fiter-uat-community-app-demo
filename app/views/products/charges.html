@@ -22,7 +22,6 @@
             <tr class="graybg">
                 <th>{{'label.heading.name' | translate}}</th>
                 <th>{{'label.heading.chargeappliesto' | translate}}</th>
-                <th>{{'label.input.chargetype' | translate}}</th>
                 <th>{{'label.heading.ispenalty' | translate}}</th>
                 <th>{{'label.heading.status' | translate}}</th>
             </tr>
@@ -31,7 +30,6 @@
             <tr class="pointer-main" dir-paginate="charge in charges | orderBy:'name':reverse  | filter:filterText |  itemsPerPage: ChargesPerPage">
                 <td class="pointer" data-ng-click="routeTo(charge.id)">{{charge.name}}</td>
                 <td class="pointer" data-ng-click="routeTo(charge.id)">{{charge.chargeAppliesTo.code | translate }}</td>
-                <td class="pointer" data-ng-click="routeTo(charge.id)">{{(charge.limits && charge.limits.length ? 'label.input.commission' : 'label.input.normal' ) | translate}}</td>
                 <td class="pointer" data-ng-click="routeTo(charge.id)">{{charge.penalty}}</td>
                 <td class="pointer" data-ng-click="routeTo(charge.id)">
                     <i class="fa fa-stop {{'charges.StatusType.active.' + charge.active | StatusLookup}}" uib-tooltip="{{'label.tooltip.charges.active.' + charge.active | translate}}" tooltip-placement="right"></i>

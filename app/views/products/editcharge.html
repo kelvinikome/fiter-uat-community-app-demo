@@ -127,68 +127,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="chargeType">{{'label.input.chargetype' | translate}}<span
-                        class="required">*</span></label>
-
-                <div class="col-sm-3">
-                    <select id="chargeType" name="chargeType" ng-model="chargeType"class="form-control"
-                            ng-change="changeChargeType()" required late-Validate>
-                        <option value="">{{'label.selectone' | translate}}</option>
-                        <option value="normal">{{'label.input.normal' | translate}}</option>
-                        <option value="commission">{{'label.input.commission' | translate}}</option>
-                    </select>
-                    <form-validate valattributeform="createchargeform" valattribute="chargeType"/>
-                </div>
-            </div>
-            <div class="form-group" ng-show="chargeType == 'normal'">
                 <label class="control-label col-sm-2" for="amount">{{'label.input.amount' | translate}}<span
                         class="required">*</span></label>
 
                 <div class="col-sm-3">
-                    <input name="amount" type="text" id="amount" ng-model="formData.amount" class="form-control" number-format late-Validate/>
+                    <input name="amount" type="text" id="amount" ng-model="formData.amount" class="form-control" number-format required late-Validate/>
                     <form-validate valattributeform="editchargeform" valattribute="amount"/>
                 </div>
             </div>
-            <hr ng-show="chargeType == 'commission'">
-            <div class="form-group" ng-show="chargeType == 'commission'" style="padding-left: 30px;">
-                <label><strong>{{ 'label.input.chargelimits' | translate }}</strong></label>
-                <table class="width50 table">
-                    <tr class="bottomborder graybg">
-                        <th>{{'label.heading.min' | translate}}</th>
-                        <th>{{'label.heading.max' | translate}}</th>
-                        <th>{{'label.input.chargecalculation' | translate}}</th>
-                        <th>{{'label.heading.amount' | translate}}</th>
-                        <th>{{'label.heading.actions' | translate}}</th>
-                    </tr>
-                    <tr class="bottomborder graybg">
-                        <td>
-                            <input id="minAmount" name="minAmount" type="text" ng-model="minAmount" class="form-control" number-format/>
-                        </td>
-                        <td>
-                            <input id="maxAmount" name="maxAmount" type="text" ng-model="maxAmount" class="form-control" number-format/>
-                        </td>
-                        <td>
-                            <select id="rangeChargeCalculation" ng-model="chargeCalculation"
-                                    data-ng-options="chargecalculation.id as chargecalculation.value for chargecalculation in template.chargeCalculationTypeOptions | filter:filterChargeCalculations(formData.chargeTimeType)"
-                                    value="{{chargecalculation.id}}" class="form-control">
-                        </td>
-                        <td>
-                            <input id="limitAmount" name="limitAmount" type="text" ng-model="limitAmount" class="form-control" number-format/>
-                        </td>
-                        <td>
-                            <a ng-click="addLimit()"><i class="fa fa-plus"></i></a>
-                        </td>
-                    </tr>
-                    <tr ng-repeat="limit in formData.limits">
-                        <td>{{limit.min | number}}</td>
-                        <td>{{limit.max | number}}</td>
-                        <td>{{limit.chargeCalculation | number}}</td>
-                        <td>{{limit.amount | number}}</td>
-                        <td><a ng-click="deleteLimit($index)"><i class="fa fa-times"></i></a></td>
-                    </tr>
-                </table>
-            </div>
-            <hr ng-show="chargeType == 'commission'">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="active">{{'label.input.active' | translate}}</label>
 
