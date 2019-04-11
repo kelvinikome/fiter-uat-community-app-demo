@@ -581,56 +581,6 @@
 
                     </uib-tab>
 
-                    <uib-tab data-ng-show="loandetails.mintosLoan" heading="{{'label.heading.mintosschedule' | translate}}">
-
-                        <table class="table table-striped .width100">
-                            <colgroup span="4"></colgroup>
-                            <thead>
-                            <!--<tr>-->
-                                <!--<th colspan="5" scope="colgroup"></th>-->
-                                <!--<th colspan="2" scope="colgroup">{{'label.heading.loanamountandbalance' | translate}}</th>-->
-                                <!--<th colspan="3" scope="colgroup">{{'label.heading.totalcostofloan' | translate}}</th>-->
-                                <!--<th colspan="6" scope="colgroup">{{'label.heading.installmenttotals' | translate}}</th>-->
-                            <!--</tr>-->
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">{{'label.heading.date' | translate}}</th>
-                                <th scope="col">{{'label.heading.repaid' | translate}}</th>
-
-                                <th scope="col">{{'label.heading.principaldue' | translate}}</th>
-                                <th scope="col">{{'label.heading.totalremainingprincipal' | translate}}</th>
-
-                                <th scope="col">{{'label.heading.interest' | translate}}</th>
-                                <th scope="col">{{'label.heading.accumulatedinterest' | translate}}</th>
-                                <th scope="col">{{'label.heading.delayedamount' | translate}}</th>
-
-                                <th scope="col">{{'label.heading.penaltiesamount' | translate}}</th>
-                                <th scope="col">{{'label.heading.sum' | translate}}</th>
-                                <th scope="col">{{'label.heading.receivedamount' | translate}}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="period in loandetails.mintosLoan.data.payment_schedule">
-                                <td scope="row">{{period.number}}</td>
-                                <td>{{period.date | DateFormat}}</td>
-                                <td>
-                                    <div ng-show="period.is_repaid"><i class="fa fa-check "></i></div>
-                                </td>
-                                <td>{{period.principal_amount | number}}</td>
-                                <td>{{period.total_remaining_principal | number}}</td>
-                                <td>{{period.interest_amount | number}}</td>
-                                <td>{{period.accumulated_interest_amount | number}}</td>
-                                <td>{{period.delayed_amount | number}}</td>
-
-                                <td>{{period.penalties_amount | number}}</td>
-                                <td>{{period.sum | number}}</td>
-                                <td>{{period.received_amount | number}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </uib-tab>
-
                     <uib-tab heading="{{'label.heading.futureschedule' | translate}}"  ng-show="loandetails.repaymentSchedule.futurePeriods">
 
                         <table class="table table-striped .width100">
