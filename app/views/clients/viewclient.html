@@ -1066,7 +1066,7 @@
 						</div>
 					</div>
 				</uib-tab>
-				<uib-tab heading="{{ 'label.heading.notes' | translate }}" has-permission='READ_CLIENTNOTE'>
+				<uib-tab heading="{{ 'label.heading.notes' | translate }}" id="clientNotes" has-permission='READ_CLIENTNOTE'>
 					<br/>
 					<form class="form">
 						<div class="form-group">
@@ -1075,7 +1075,7 @@
 							</textarea>
 							<div class="notewrapper col-sm-12 col-md-12">
 								<span class="pull-right noteaddbuttonwrapper">
-									<button class="btn btn-primary" type="submit" ng-click="saveNote()" has-permission='CREATE_CLIENTNOTE'>{{'label.button.add' |translate}}
+									<button class="btn btn-primary" type="submit" id="saveClientNote" ng-click="saveNote()" has-permission='CREATE_CLIENTNOTE'>{{'label.button.add' |translate}}
 									</button>
 								</span>
 							</div>

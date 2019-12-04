@@ -1,0 +1,7 @@
+{
+    "env": {
+        "username": "mifos",
+        "password": "password",
+        "baseUrl": "http://localhost:9002/?baseApiUrl=https://localhost:8443#/"
+    }
+}

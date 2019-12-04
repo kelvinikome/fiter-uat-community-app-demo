@@ -1,7 +1,10 @@
 {
   "name": "mifosx-community-app",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "cypress": "^3.7.0",
+    "grunt-contrib-compass": "^1.1.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-clean": "~0.5.0",
