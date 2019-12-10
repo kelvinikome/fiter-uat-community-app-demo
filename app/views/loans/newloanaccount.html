@@ -165,7 +165,7 @@
                     <hr>
                     <button class="btn btn-default pull-left" wz-previous disabled ng-hide="disabled"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Previous
                     </button>
-                    <button class="btn btn-default pull-right" type="submit" ng-hide="disabled">Next&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                    <button class="btn btn-default pull-right" type="submit" id="submit" ng-hide="disabled">Next&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
                     </button>
                     <div class="col-sm-offset-6">
                     <button class="btn btn-warning" ng-hide="!disabled" ng-click="cancel()">{{'label.button.cancel' | translate}}</button>
@@ -574,7 +574,7 @@
                     <button class="btn btn-default pull-left" wz-previous>
                         <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Previous
                     </button>
-                    <button class="btn btn-default pull-right" type="submit">Next&nbsp;&nbsp;
+                    <button class="btn btn-default pull-right" id="submitTerms" type="submit">Next&nbsp;&nbsp;
                         <i class="fa fa-arrow-right"></i>
                     </button>
                 </fieldset>
@@ -769,7 +769,7 @@
                     <button class="btn btn-default pull-left" wz-previous>
                         <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Previous
                     </button>
-                    <button class="btn btn-default pull-right" type="submit">Next&nbsp;&nbsp;
+                    <button class="btn btn-default pull-right" id="submitCharges" type="submit">Next&nbsp;&nbsp;
                         <i class="fa fa-arrow-right"></i>
                     </button>
                 </fieldset>
@@ -839,13 +839,13 @@
                     <button class="btn btn-default pull-left" wz-previous>
                         <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Previous
                     </button>
-                    <button class="btn btn-default pull-right" type="submit">Next&nbsp;&nbsp;
+                    <button class="btn btn-default pull-right" id="submit" type="submit">Next&nbsp;&nbsp;
                         <i class="fa fa-arrow-right"></i>
                     </button>
                 </fieldset>
             </form>
         </wz-step>
-        <wz-step wz-title="Review" ng-if="!disabled">
+        <wz-step wz-title="Review" id="review" ng-if="!disabled">
             <form name="review" class="form-horizontal">
                 <fieldset>
                     <api-validate></api-validate>
