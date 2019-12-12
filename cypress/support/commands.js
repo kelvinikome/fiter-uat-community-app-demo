@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('login', () => {
+    cy.visit(Cypress.env('baseUrl'))
+    cy.wait(3000)
+    cy.get('#uid').type(Cypress.env('username'))
+    cy.get('#pwd').type(Cypress.env('password'))
+    cy.get('#login-button').click()
+});
+
+Cypress.Commands.add('selectClient', (firstName, lastName) => {
+    cy.visit(Cypress.env('baseUrl') + 'clients')
+    cy.get('#searchText').type(firstName + ' ' + lastName)
+    cy.get('#clientSearch').click()
+    cy.get('tbody tr:first').click()
+});
+
+Cypress.Commands.add('selectLoanAccount', (firstName, lastName) => {
+    cy.selectClient(firstname, lastName)
+    cy.get('tbody tr:first').click()
+});

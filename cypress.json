@@ -2,6 +2,8 @@
     "env": {
         "username": "mifos",
         "password": "password",
-        "baseUrl": "http://localhost:9002/?baseApiUrl=https://localhost:8443#/"
+        "baseUrl": "http://localhost:9002/?baseApiUrl=https://localhost:8443#/",
+
+        "loanproduct": "American_Loan_12M"
     }
 }

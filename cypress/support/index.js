@@ -18,3 +18,31 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+let firstname = 'firstname';
+let lastname = 'lastname';
+
+before(() => {
+    cy.randomString().then(str => firstname = str)
+    cy.randomString().then(str => lastname = str)
+    cy.viewport(1440, 1200)
+});
+
+beforeEach(() => {
+    cy.login()
+})
+
+afterEach(() => cy.wait(4000))
+
+Cypress.Commands.add('getClientFirstAndLastName', () => [firstname, lastname]);
+
+Cypress.Commands.add('randomString', () => {
+    let random_string = '';
+    let random_ascii;
+    let string_length = 6;
+    for (let i = 0; i < string_length; i++) {
+        random_ascii = Math.floor((Math.random() * 25) + 97);
+        random_string += String.fromCharCode(random_ascii)
+    }
+    return random_string
+});
