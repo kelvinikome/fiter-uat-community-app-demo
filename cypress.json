@@ -4,6 +4,8 @@
         "password": "password",
         "baseUrl": "http://localhost:9002/?baseApiUrl=https://localhost:8443#/",
 
-        "loanproduct": "American_Loan_12M"
+        "loanproduct": "American_Loan_12M",
+        "currency": "Euro",
+        "installmentFeeChargeName": "Installment Fee Test"
     }
 }
